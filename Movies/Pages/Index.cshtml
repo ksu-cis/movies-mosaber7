@@ -4,4 +4,62 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Hello World</h1>
+
+
+
+<div class="content">
+    <div class="result">
+        <h1>Movies</h1>
+        @foreach(Movie movie in Model.Movies)
+         {
+         <div class="movie-entry">
+            <h2>@movie.Title (@movie.Year)</h2>
+           <p>Rated @movie.MPAA_Rating</p>
+             <div class="reviews">
+                Rotten Tomnato
+                <h3>@movie.Rotten_Tomatoes_Rating</h3>
+            </div>
+            <div>
+                Idmb
+                <h3>@movie.IMDB_Rating</h3>
+            </div>
+         </div>
+         }
+    </div>
+
+
+    <form method="post">
+        <h4>search</h4>
+        <input type="text" name="search" />
+        <input type="submit" value="searchAndFilter" />
+        <h4>Filter By Rating</h4>
+        <div class="checkbox-list">
+        <label>
+            <input type="checkbox" name="Rating" value="G" />
+            Rated G
+        </label>
+        <label>
+            <input type="checkbox" name="Rating" value="PG" />
+            Rated PG
+        </label>
+        <label>
+            <input type="checkbox" name="Rating" value="PG-13" />
+            Rated PG-13
+        </label>
+        <label>
+            <input type="checkbox" name="Rating" value="R" />
+            Rated R
+            <label>
+                <input type="checkbox" name="Rating" value="NC-17" />
+                Rated NC-17
+            </label>
+
+        </label>
+            </div>
+
+
+    </form>
+</div>
+
+        
+

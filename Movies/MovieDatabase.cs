@@ -27,5 +27,46 @@ namespace Movies
         }
 
         public List<Movie> All { get { return movies; } }
+
+        public List<Movie> search(string searchstring)
+
+        {
+           
+            List<Movie> result = new List<Movie>();
+            foreach (Movie movie in movies ) {
+
+
+                if (movie.Title.Contains(searchstring, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(movie);
+                }
+            }
+            return result;
+
+
+        }
+        public List<Movie> Filter(List<String> rating)
+        {
+            List<Movie> result = new List<Movie>();
+            foreach (Movie movie in movies) {
+              if(rating.Contains(movie.MPAA_Rating))  result.Add(movie);
+            }
+
+            return result;
+        }
+        public List<Movie> SearchAndFilter(string searchstring,List<String> rating)
+        {
+            List<Movie> result = new List<Movie>();
+            foreach (Movie movie in movies)
+            {
+                if (rating.Contains(movie.MPAA_Rating)&& movie.Title.Contains(searchstring, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(movie);
+                }
+            }
+
+            return result;
+        }
+
     }
 }
