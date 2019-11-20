@@ -30,32 +30,43 @@
 
     <form method="post">
         <h4>search</h4>
-        <input type="text" name="search" />
+        <input type="text" name="search" value="@Model.search" />
         <input type="submit" value="searchAndFilter" />
+        <input type="reset" value="Clear"/> 
         <h4>Filter By Rating</h4>
         <div class="checkbox-list">
-        <label>
-            <input type="checkbox" name="Rating" value="G" />
-            Rated G
-        </label>
-        <label>
-            <input type="checkbox" name="Rating" value="PG" />
-            Rated PG
-        </label>
-        <label>
-            <input type="checkbox" name="Rating" value="PG-13" />
-            Rated PG-13
-        </label>
-        <label>
-            <input type="checkbox" name="Rating" value="R" />
-            Rated R
             <label>
-                <input type="checkbox" name="Rating" value="NC-17" />
-                Rated NC-17
+                <input type="checkbox" name="mpaa" value="G" checked="@Model.mpaa.Contains("G")"/>
+                Rated G
+            </label>
+            <label>
+                <input type="checkbox" name="mpaa" value="PG" checked="@Model.mpaa.Contains("PG")"/>
+                Rated PG
+            </label>
+            <label>
+                <input type="checkbox" name="mpaa" value="PG-13" checked="@Model.mpaa.Contains("PG-13")"/>
+                Rated PG-13
+            </label>
+            <label>
+                <input type="checkbox" name="mpaa" value="R" checked="@Model.mpaa.Contains("R")"/>
+                Rated R
+                <label>
+                    <input type="checkbox" name="mpaa" value="NC-17" checked="@Model.mpaa.Contains("NC-17")"/>
+                    Rated NC-17
+                </label>
+
             </label>
 
-        </label>
-            </div>
+            <h4>review scores</h4>
+            <label>
+              Min Idmb
+                <input type="number" min="0" max="10" step="0.1" name="minIDM" value="@Model.minIMDB">
+            </label>
+            <label>
+                Max Idmb
+                <input type="number" min="0" max="10" step="0.1" name="maxIDM" value="@Model.maxIMDB">
+            </label>
+        </div>
 
 
     </form>
