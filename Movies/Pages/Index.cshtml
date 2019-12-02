@@ -67,7 +67,17 @@
                 <input type="number" min="0" max="10" step="0.1" name="maxIDM" value="@Model.maxIMDB">
             </label>
         </div>
+        <h4>Sort by</h4>
+        <select name="Sort">
+            <option value="title" selected="@(Model.Sort=="title")">Title</option>
+            <option value="director" selected="@(Model.Sort=="director")">Director</option>
+            <option value="mpaa" selected="@(Model.Sort=="mpaa")">MPAA Rating</option>
+            <option value="imbd" selected="@(Model.Sort=="imbd")">IMBD Rating</option>
+            <option value="rt" selected="@(Model.Sort=="rt")">Rotation Rating</option>
 
+
+
+        </select>
 
     </form>
 </div>
